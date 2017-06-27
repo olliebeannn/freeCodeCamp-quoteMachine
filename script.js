@@ -11,7 +11,7 @@ $(document).ready(function() {
 
 function getQuote() {
   $.ajax({
-    url: "http://api.forismatic.com/api/1.0/?method=getQuote&format=jsonp&lang=en&jsonp=successCallback",
+    url: "https://api.forismatic.com/api/1.0/?method=getQuote&format=jsonp&lang=en&jsonp=successCallback",
     dataType: 'jsonp'
   });
 }
