@@ -2,6 +2,9 @@ $(document).ready(function() {
   //Load initial quote
   getQuote();
 
+  //Set background colour
+  setRandomBgColour();
+
   //Click handler for New Quote button
   $('.quote--nextQuoteButton').on("click", getQuote);
 });
@@ -32,4 +35,17 @@ function successCallback(data) {
   var tweetText = "\"" + data.quoteText + "\" " + quoteAttribution;
   tweetLink = tweetLink + encodeURI(tweetText);
   $('.quote--tweetButton').attr("href", tweetLink);
+
+  setRandomBgColour();
+}
+
+//Generate random colour for bg
+function setRandomBgColour() {
+  var r = Math.floor(Math.random()*256);
+  var g = Math.floor(Math.random()*256);
+  var b = Math.floor(Math.random()*256);
+
+  var rgbString = "rgb(" + r + "," + g + "," + b + ")";
+
+  $('body').css("background-color", rgbString);
 }
