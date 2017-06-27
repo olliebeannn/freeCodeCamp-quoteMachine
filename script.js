@@ -28,8 +28,8 @@ function successCallback(data) {
   $('.quote--author').html(quoteAttribution);
 
   //Update the tweet button link
-  var tweetLink = "https://twitter.com/intent/tweet?text="
-  var tweetText = "\"" + data.quoteText + "\" " + quoteAttribution + " #quotes";
+  var tweetLink = "https://twitter.com/intent/tweet?hashtags=quotes&text="
+  var tweetText = "\"" + data.quoteText + "\" " + quoteAttribution;
   tweetLink = tweetLink + encodeURI(tweetText);
   $('.quote--tweetButton').attr("href", tweetLink);
 }
