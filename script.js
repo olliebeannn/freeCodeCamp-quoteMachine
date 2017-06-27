@@ -20,10 +20,16 @@ function successCallback(data) {
   //Set quote text
   $('.quote--text').html("'" + data.quoteText + "'");
 
+  //Set quote attribution; set to anonymous if none
+  var quoteAttribution = "–Anonymous";
   if(data.quoteAuthor) {
-    $('.quote--author').html("–" + data.quoteAuthor);
-  } else {
-    $('.quote--author').html("–Anonymous");
+    quoteAttribution = "–" + data.quoteAuthor;
   }
+  $('.quote--author').html(quoteAttribution);
 
+  //Update the tweet button link
+  var tweetLink = "https://twitter.com/intent/tweet?text="
+  var tweetText = "\"" + data.quoteText + "\" " + quoteAttribution + " #quotes";
+  tweetLink = tweetLink + encodeURI(tweetText);
+  $('.quote--tweetButton').attr("href", tweetLink);
 }
